@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: pulsebackend
+    env: python
+    plan: free
+    buildCommand: ""
+    startCommand: gunicorn core.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: core.settings
+      - key: SECRET_KEY
+        value: your-secret-key-here
+      - key: ALLOWED_HOSTS
+        value: your-site.onrender.com
